@@ -77,30 +77,30 @@
 
 			}
 
-            // Remove 'count' number of edges with the lowest costs
-            const arrIncreasingCostVertices = Array( vertices.length ).fill().map( ( _, index ) => { return index })
+		        // Remove 'count' number of edges with the lowest costs
+		        const arrIncreasingCostVertices = Array( vertices.length ).fill().map( ( _, index ) => { return index })
 
-            arrIncreasingCostVertices.sort( function( index1, index2 ) {
-                return vertices[ index1 ].collapseCost - vertices[ index2 ].collapseCost;
-            });
+		        arrIncreasingCostVertices.sort( function( index1, index2 ) {
+		 	    return vertices[ index1 ].collapseCost - vertices[ index2 ].collapseCost;
+		        });
 
-            const arrVerticesToRemove = arrIncreasingCostVertices.slice( 0, count );
+		        const arrVerticesToRemove = arrIncreasingCostVertices.slice( 0, count );
 
-            arrVerticesToRemove.sort( ( index1, index2 ) => { return index2 - index1; } );
+		        arrVerticesToRemove.sort( ( index1, index2 ) => { return index2 - index1; } );
 
-            if ( arrVerticesToRemove.length < count ) {
+		        if ( arrVerticesToRemove.length < count ) {
 
-                console.log( "Only found " + arrVerticesToRemove.length + " vertices to remove." );
+			    console.log( "Only found " + arrVerticesToRemove.length + " vertices to remove." );
 
-            }
+		        }
 
-            for ( const nextVertexIndex of arrVerticesToRemove ) {
-                
-                const nextVertex = vertices[ nextVertexIndex ];
-                
-                collapse( vertices, faces, nextVertex, nextVertex.collapseNeighbor );
+		        for ( const nextVertexIndex of arrVerticesToRemove ) {
 
-            }
+			    const nextVertex = vertices[ nextVertexIndex ];
+
+			    collapse( vertices, faces, nextVertex, nextVertex.collapseNeighbor );
+
+		        }
 
 			const simplifiedGeometry = new THREE.BufferGeometry();
 			const position = [];
