@@ -77,25 +77,6 @@
 
 			}
 
-            /* 
-			let nextVertex;
-			let z = count;
-
-			while ( z -- ) {
-
-				nextVertex = minimumCostEdge( vertices );
-
-				if ( ! nextVertex ) {
-
-					console.log( 'THREE.SimplifyModifier: No next vertex' );
-					break;
-
-				}
-
-				collapse( vertices, faces, nextVertex, nextVertex.collapseNeighbor );
-
-			} */
-
             // Remove 'count' number of edges with the lowest costs
             const arrIncreasingCostVertices = Array( vertices.length ).fill().map( ( _, index ) => { return index })
 
@@ -355,26 +336,6 @@
 		}
 
 	}
-
-    /*
-	function minimumCostEdge( vertices ) {
-
-		// O(n * n) approach. TODO optimize this
-		let least = vertices[ 0 ];
-
-		for ( let i = 0; i < vertices.length; i ++ ) {
-
-			if ( vertices[ i ].collapseCost < least.collapseCost ) {
-
-				least = vertices[ i ];
-
-			}
-
-		}
-
-		return least;
-
-	} */
     
     // we use a triangle class to represent structure of face slightly differently
 
